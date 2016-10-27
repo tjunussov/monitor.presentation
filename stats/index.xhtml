@@ -14,7 +14,7 @@
 		<ui:section>
 			<ui:column>
 			
-				<ui:report id="orders" url="/api/reports/total_indicators.html" title="Переводы и платежи" width="30%">
+				<ui:report id="orders" url="api/reports/total_indicators.html" title="Переводы и платежи" width="30%">
 					<h1>Количество переводов <span name="total_payments_date">за </span></h1>
 					<ui:data name="total_orders"/>
 					<ui:data name="total_orders_growth" title="ГЭП принято"/>
@@ -27,50 +27,50 @@
 					(в сравнении с аналогичным периодом прошлого года)
 				</ui:report>
 				
-				<ui:report id="total_pensacc" url="/api/reports/total_pensacc.html" title="Динамика открытых счетов" sub="Лицевые и карточные счета, пенсий и пособий за 2015г" width="30%">
+				<ui:report id="total_pensacc" url="api/reports/total_pensacc.html" title="Динамика открытых счетов" sub="Лицевые и карточные счета, пенсий и пособий за 2015г" width="30%">
 					<ui:graph>
 						<ui:serie type="line" color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
 					</ui:graph>
 				</ui:report>
 				
-				<ui:report id="oldmail" url="/api/reports/total_indicators.html" title="Количество РПО на хранении более 30 дней" width="30%">
+				<ui:report id="oldmail" url="api/reports/total_indicators.html" title="Количество РПО на хранении более 30 дней" width="30%">
 					<ui:data name="total_oldmail"/>
 					<ui:data name="total_gep" title="ГЭП принято"/>
 					<ui:data name="total_gep2" title="с нарушением"/>
 				</ui:report>
 																
-				<ui:report id="total_postomat" url="/api/reports/total_postomat.html" title="Количество постаматов" width="30%">
+				<ui:report id="total_postomat" url="api/reports/total_postomat.html" title="Количество постаматов" width="30%">
 					<ui:graph>
 						<ui:serie type="line" color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
 					</ui:graph>
 				</ui:report>
 				
-				<ui:report id="total_branches" url="/api/reports/total_branches.html" title="Почтовые отделения" sub="Автоматизировано - 2243, неавтоматизировано - 1116" width="30%">
+				<ui:report id="total_branches" url="api/reports/total_branches.html" title="Почтовые отделения" sub="Автоматизировано - 2243, неавтоматизировано - 1116" width="30%">
 					<ui:graph cat-column="1">
 						<ui:serie type="line" color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
 					</ui:graph>
 				</ui:report>
 				
-				<ui:report id="total_cards" url="/api/reports/total_cards.html" title="Выпуск платежных карточек" sub="Всего - 191 055, активные - 125 559" width="30%">
+				<ui:report id="total_cards" url="api/reports/total_cards.html" title="Выпуск платежных карточек" sub="Всего - 191 055, активные - 125 559" width="30%">
 					<ui:graph cat-column="1">
 						<ui:serie type="line" color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
 					</ui:graph>
 				</ui:report>
 				
-				<ui:report id="salemtenge" url="/api/reports/total_indicators.html" title="SALEM TENGE" width="30%">
+				<ui:report id="salemtenge" url="api/reports/total_indicators.html" title="SALEM TENGE" width="30%">
 					<ui:data name="total_quicktr_date"/>
 					<ui:data name="total_quicktr_sdok_growth" title="прирост по количеству"/>
 					<ui:data name="total_quicktr_growth" title="прирост по объему"/>
 					(в сравнении с аналогичным периодом прошлого года)
 				</ui:report>
 				
-				<ui:report id="total_subscr" url="/api/reports/total_subscr.html" title="Количество заказов по подписке" width="30%">
+				<ui:report id="total_subscr" url="api/reports/total_subscr.html" title="Количество заказов по подписке" width="30%">
 					<ui:graph cat-column="1">
 						<ui:serie type="line" color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
 					</ui:graph>
 				</ui:report>
 				
-				<ui:report id="rpo" url="/api/reports/total_indicators.html" title="Количество РПО" date="total_rpo_date" width="30%">
+				<ui:report id="rpo" url="api/reports/total_indicators.html" title="Количество РПО" date="total_rpo_date" width="30%">
 					<ui:data name="total_rpo"/>
 					<ui:data name="total_rpo_growth"/>
 					(в сравнении с аналогичным периодом прошлого года)
@@ -101,7 +101,7 @@
 				<tab id="tabVk">
 				<![CDATA[
 					<!-- VK widget-->
-					<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+					<script type="text/javascript" src="//vk.com/jsapi/openapi.js?116"></script>
 					<div id="vk_groups"></div>
 					<script type="text/javascript">
 						VK.Widgets.Group("vk_groups", {mode: 2, width: "auto", height: "800"}, 45292452);
