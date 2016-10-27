@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/_templates/template_monitor.xsl"?>
+<ui:page xmlns:ui="ui" name="финансы">
+	
+	<title>Monitor: Финансы</title>
+	
+	<ui:body>
+	
+		<ui:subhead sub="Данные для графиков предоставлены из системы COLVIR и CPILS">
+			Dashboard - Финансовые услуги
+		</ui:subhead>
+		
+		<ui:report presentation="yes" id="penaltypdd" url="/api/reports/penaltypdd.html" title="Онлайн оплата штрафов за нарушение ПДД" sub="Кол-во принятых онлайн платежей по оплате штрафов за нарушение ПДД: В сравнений с предыдущими 2-мя неделями">
+			<ui:graph cat-column="1">
+				<ui:serie type="column" color="kazpost_lightblue" format="{value} шт"/>
+				<ui:serie type="column" color="kazpost_yellow" format="{value} шт"/>
+				<ui:serie type="column" color="kazpost_brown" format="{value} шт"/>
+			</ui:graph>
+			<ui:data name="total_count" title="Общее количество"/>
+		</ui:report>
+		 
+		<ui:report presentation="yes" id="quicktr" url="/api/reports/quicktr.html" title="«SALEM TENGE»" sub="Кол-во  переводов «Salem, tenge»: В сравнений с предыдущими 2-мя неделями">
+			<ui:graph cat-column="1">
+				<ui:serie type="column" data-column="2" color="kazpost_yellow" format="{value} шт"/>
+				<ui:serie type="column" data-column="3" color="kazpost_lightblue" format="{value} шт"/>
+				<ui:serie type="column" data-column="4" color="kazpost_brown" format="{value} шт"/>
+			</ui:graph>
+		</ui:report>
+		
+		<!-- <ui:report presentation="yes" id="mpu" url="/api/reports/mpu.html" title="Услуги, оказанные через МПУ" sub="Кол-во услуг, оказанных через МПУ">
+			<ui:graph cat-column="1">
+				<ui:serie type="column" color="kazpost_lightblue" format="{value} шт"/>
+				<ui:serie type="column" color="kazpost_yellow" format="{value} шт"/>
+				<ui:serie type="column" color="kazpost_brown" format="{value} шт"/>
+			</ui:graph>
+		</ui:report> -->
+		
+		<ui:report presentation="yes" id="postals" url="/api/reports/postal_orders.html" title="Почтовые Денежные Переводы" sub="Кол-во почтовых денежных переводов внутри РК: В сравнений с идентичными периодами прошлого года">
+			<ui:graph cat-column="1">
+				<ui:serie type="line" data-column="2" color="kazpost_lightblue" format="{value} шт"/>
+				<ui:serie type="line" data-column="3" color="kazpost_yellow" format="{value} шт"/>
+			</ui:graph>
+		</ui:report>
+		
+		<ui:report presentation="yes" id="int_postals" url="/api/reports/int_postal_orders.html" title="Международные Почтовые Денежные Переводы" sub="Кол-во международных почтовых переводов: В сравнений с идентичными периодами прошлого года">
+			<ui:graph cat-column="1">
+				<ui:serie type="line" data-column="2" color="kazpost_yellow" format="{value} шт"/>
+				<ui:serie type="line" data-column="3" color="kazpost_lightblue" format="{value} шт"/>
+			</ui:graph>
+		</ui:report>
+		
+		<ui:report presentation="yes" id="inet_subscr" url="/api/reports/inet_subscr.html" title="Интернет подписка" sub="Кол-во заказов на интернет подписку">
+			<ui:graph cat-column="1" drill-down-param="p_dep_code">
+				<ui:serie type="column" multicolumn='true' color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
+				<ui:serie type="line" multicolumn='true' color="kazpost_yellow" format="{value:,.1f} тг" valueSuffix="тг"/>
+			</ui:graph>
+			<ui:data name="total_count" title="Общее количество"/>
+		</ui:report>
+		
+		<!--ui:report presentation="yes" id="graph_postmarket2" url="/api/reports/postmarket.html" title="Postmarket.kz, Подписки" sub="Данные по месяцам 2015">
+			<ui:graph cat-column="1">
+				<ui:serie type="column" external='true'  multicolumn='true' color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
+				<ui:serie type="line" external='true'  multicolumn='true' color="kazpost_brown" format="{value:,.1f} тг" valueSuffix="тг"/>
+			</ui:graph>
+			<ui:data name="total_count" title="Общее количество"/>
+		</ui:report-->
+
+		<ui:report presentation="yes" id="pensions" url="/api/reports/pensions_opened.html" title="Открытые счета пенсий и пособий" sub="Количество открытых счетов пенсий и пособий: В сравнений с идентичными периодами прошлого года">
+			<ui:graph cat-column="1">
+				<ui:serie type="line" color="kazpost_yellow" format="{value} шт" valueSuffix="шт"/>
+				<ui:serie type="line" color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
+			</ui:graph>
+			<ui:data name="pens_total_count" title="Общее количество"/>
+		</ui:report>
+		
+		<!-- <ui:report presentation="yes" id="opencsh" url="/api/reports/opencsh.html" title="Не закрытые кассы в филиалах" width="40%" load-lazy="false">
+			<ui:graph cat-column="1">
+				<ui:serie type="pie" title="Кол-во" format="{value} сч" valueSuffix="сч"/>
+			</ui:graph>
+		</ui:report> -->
+
+		
+		
+	</ui:body>
+
+</ui:page>

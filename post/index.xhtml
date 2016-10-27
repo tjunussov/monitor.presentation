@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/_templates/template_monitor.xsl"?>
+<ui:page xmlns:ui="ui" name="почта">
+	
+	<title>Monitor: Почта</title>
+	
+	<ui:body>
+	
+		<ui:subhead sub="Данные для графиков предоставлены из системы COLVIR и CPILS">
+			Dashboard - Почтовые услуги
+		</ui:subhead>
+
+		<!-- <ui:report presentation="yes" id="printtocard" url="/api/reports/printtocard.html" title="PRINT2CARD" sub="Количество принятых почтовых карточек Print2Card">
+			<ui:graph cat-column="1" legend="yes">
+				<ui:serie type="column" color="kazpost_yellow" format="{value} шт"/>
+				<ui:serie type="column" color="kazpost_lightblue" format="{value} шт"/>
+			</ui:graph>
+		</ui:report> -->
+		
+		<ui:report presentation="yes" id="oldmail" url="/api/reports/oldmail.html" title="РПО" sub="РПО, находящихся в филиалах свыше 14 и 30 дней">
+			<ui:graph cat-column="1">
+				<ui:serie type="column" color="kazpost_yellow" format="{value} шт" valueSuffix="шт"/>
+				<ui:serie type="column" color="kazpost_red" format="{value} шт" valueSuffix="шт"/>
+			</ui:graph>
+		</ui:report>
+		
+		<ui:report presentation="yes" id="gep" url="/api/reports/gep.html" title="ГЭП" sub="Количество почтовых отправлений в рамках ГЭП">
+			<ui:graph cat-column="1">
+				<ui:serie type="column" data-column="2" color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
+			</ui:graph>
+		</ui:report>
+
+		<ui:report presentation="yes" id="gep_month" url="/api/reports/gep_by_month.html" title="ГЭП по месяцам" sub="Количество почтовых отправлений в рамках ГЭП">
+			<ui:graph cat-column="1">
+				<ui:serie type="area" data-column="2" color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
+			</ui:graph>
+		</ui:report>
+		
+		
+		<!-- <ui:report presentation="yes" id="gep2" url="/api/reports/gep2.html" title="ГЭП (просроченные и без статуса в системе ВС РК)" sub="Количество почтовых отправлений (просроченные и без статуса в системе ВС РК) в рамках ГЭП">
+			<ui:graph cat-column="1">
+				<ui:serie type="column" color="kazpost_yellow" format="{value} шт"/>
+				<ui:serie type="column" color="kazpost_lightblue" format="{value} шт"/>
+			</ui:graph>
+		</ui:report> -->
+		
+		<!-- <ui:report presentation="yes" id="rpo" url="/api/reports/rpo.html" title="Таблица РПО" sub="Таблица количество РПО в разрезе статусов и отдельно по филиалам">
+			<ui:graph title="График РПО">
+				<ui:serie type="bar" title="Прием"/>
+				<ui:serie type="bar" title="Обработка получателя"/>
+				<ui:serie type="bar" title="Обработка отправителя"/>
+				<ui:serie type="bar" title="СЦ/УСПП"/>
+				<ui:serie type="bar" title="Выдача"/>
+				<ui:serie type="bar" title="Хранение"/>
+				<ui:serie type="bar" title="ММПО"/>
+			</ui:graph>
+		</ui:report> -->
+		
+		<ui:report presentation="yes" id="postamat" url="/api/reports/postamat.html" title="Постаматы" sub="Количество РПО, находящихся в постаматах">
+			<ui:graph cat-column="1" legend="yes">
+				<ui:serie type="column" color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
+				<ui:serie type="column" color="kazpost_yellow" format="{value} шт"/>
+			</ui:graph>
+		</ui:report>
+		
+		<ui:report presentation="yes" id="graph_total_postomat" url="/api/reports/total_postomat.html" title="Постаматы" sub="Кол-во РПО в постаматах по месяцам">
+			<ui:graph cat-column="1">
+				<ui:serie type="line" color="rgba(191,159,152,.8)" format="{value} шт" valueSuffix="шт"/>
+			</ui:graph>
+			<ui:data name="pens_total_count" title="Общее количество"/>
+		</ui:report>
+
+	</ui:body>
+
+</ui:page>

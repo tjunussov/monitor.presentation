@@ -1,0 +1,7 @@
+.highcharts-container {
+	z-index:10;
+}
+
+span[name] {
+	display:none;
+}

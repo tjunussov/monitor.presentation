@@ -1,0 +1,128 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/_templates/template_monitor.xsl"?>
+<ui:page xmlns:ui="ui" name="статистика">
+	
+	<title>Monitor: Статистика</title>
+	
+	<ui:body>
+	
+		<ui:subhead sub="Данные для графиков предоставлены из системы COLVIR и CPILS">
+			Dashboard - Общая статистика
+		</ui:subhead>
+		
+		<ui:section>
+			<ui:column>
+			
+				<ui:report id="orders" url="/api/reports/total_indicators.html" title="Переводы и платежи" width="30%">
+					<h1>Количество переводов <span name="total_payments_date">за </span></h1>
+					<ui:data name="total_orders"/>
+					<ui:data name="total_orders_growth" title="ГЭП принято"/>
+					<ui:data name="total_gep2" title="с нарушением"/>
+					(в сравнении с аналогичным периодом прошлого года)
+					<h1>Объем платежей <span name="total_payments_date">за </span></h1>
+					<ui:data name="total_payments_sdok"/>
+					<ui:data name="total_payments_sdok_growth" title="ГЭП принято"/>
+					<ui:data name="total_gep2" title="с нарушением"/>
+					(в сравнении с аналогичным периодом прошлого года)
+				</ui:report>
+				
+				<ui:report id="total_pensacc" url="/api/reports/total_pensacc.html" title="Динамика открытых счетов" sub="Лицевые и карточные счета, пенсий и пособий за 2015г" width="30%">
+					<ui:graph>
+						<ui:serie type="line" color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
+					</ui:graph>
+				</ui:report>
+				
+				<ui:report id="oldmail" url="/api/reports/total_indicators.html" title="Количество РПО на хранении более 30 дней" width="30%">
+					<ui:data name="total_oldmail"/>
+					<ui:data name="total_gep" title="ГЭП принято"/>
+					<ui:data name="total_gep2" title="с нарушением"/>
+				</ui:report>
+																
+				<ui:report id="total_postomat" url="/api/reports/total_postomat.html" title="Количество постаматов" width="30%">
+					<ui:graph>
+						<ui:serie type="line" color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
+					</ui:graph>
+				</ui:report>
+				
+				<ui:report id="total_branches" url="/api/reports/total_branches.html" title="Почтовые отделения" sub="Автоматизировано - 2243, неавтоматизировано - 1116" width="30%">
+					<ui:graph cat-column="1">
+						<ui:serie type="line" color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
+					</ui:graph>
+				</ui:report>
+				
+				<ui:report id="total_cards" url="/api/reports/total_cards.html" title="Выпуск платежных карточек" sub="Всего - 191 055, активные - 125 559" width="30%">
+					<ui:graph cat-column="1">
+						<ui:serie type="line" color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
+					</ui:graph>
+				</ui:report>
+				
+				<ui:report id="salemtenge" url="/api/reports/total_indicators.html" title="SALEM TENGE" width="30%">
+					<ui:data name="total_quicktr_date"/>
+					<ui:data name="total_quicktr_sdok_growth" title="прирост по количеству"/>
+					<ui:data name="total_quicktr_growth" title="прирост по объему"/>
+					(в сравнении с аналогичным периодом прошлого года)
+				</ui:report>
+				
+				<ui:report id="total_subscr" url="/api/reports/total_subscr.html" title="Количество заказов по подписке" width="30%">
+					<ui:graph cat-column="1">
+						<ui:serie type="line" color="kazpost_lightblue" format="{value} шт" valueSuffix="шт"/>
+					</ui:graph>
+				</ui:report>
+				
+				<ui:report id="rpo" url="/api/reports/total_indicators.html" title="Количество РПО" date="total_rpo_date" width="30%">
+					<ui:data name="total_rpo"/>
+					<ui:data name="total_rpo_growth"/>
+					(в сравнении с аналогичным периодом прошлого года)
+					<h1>в том числе EMS <span name="total_ems_date"></span></h1>
+					<ui:data name="total_ems"/>
+					<ui:data name="total_ems_growth"/>
+					(в сравнении с аналогичным периодом прошлого года)
+				</ui:report>
+
+			</ui:column>
+			<ui:column width="25%">
+				<menu>
+					<group>
+						<a href="#tabTwitter">TWITTER</a>
+						<a href="#tabVk">VK</a>
+						<a href="#tabFacebook">FACEBOOK</a>
+					</group>
+				</menu>
+				<tab id="tabTwitter">
+				<![CDATA[
+					<!-- Twitter widget-->
+					<a class="twitter-timeline" href="https://twitter.com/Kazpost" data-widget-id="586014098883743744">Твиты от @Kazpost</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+					if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}
+					(document,"script","twitter-wjs");</script>
+				]]>
+				</tab>
+				<tab id="tabVk">
+				<![CDATA[
+					<!-- VK widget-->
+					<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+					<div id="vk_groups"></div>
+					<script type="text/javascript">
+						VK.Widgets.Group("vk_groups", {mode: 2, width: "auto", height: "800"}, 45292452);
+					</script>
+				]]>
+				</tab>
+				<tab id="tabFacebook">
+				<![CDATA[
+					<!-- Facebook widget-->
+					<div class="fb-page" data-href="https://www.facebook.com/kazpost"  data-height="800" data-hide-cover="false" data-show-facepile="false" data-show-posts="true">
+						<div class="fb-xfbml-parse-ignore">
+							<blockquote cite="https://www.facebook.com/kazpost">
+								<a href="https://www.facebook.com/kazpost">Kazpost</a>
+							</blockquote>
+						</div>
+					</div>
+				]]>
+				</tab>
+			</ui:column>
+		</ui:section>
+
+	</ui:body>
+
+</ui:page>
