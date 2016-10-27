@@ -59,11 +59,11 @@
 		    <title><xsl:value-of select="$title"/> - АО Казпочта</title>
 		    <meta name="viewport" content="width=1920,height=1200"/>
 		    
-		    <link type="image/x-icon" rel="shortcut icon" href="/favicon.png" /> 
-    		<link type="image/x-icon" rel="icon" href="/favicon.png" /> 
+		    <link type="image/x-icon" rel="shortcut icon" href="favicon.png" /> 
+    		<link type="image/x-icon" rel="icon" href="favicon.png" /> 
 		    
-		    <link rel="stylesheet" type="text/css" href="/_css/style.css" />
-		    <link rel="stylesheet" type="text/css" href="/_css/roboto.css" />
+		    <link rel="stylesheet" type="text/css" href="_css/style.css" />
+		    <link rel="stylesheet" type="text/css" href="_css/roboto.css" />
 		    
 		    <xsl:for-each select="$page/xhtml:link">
             	<link rel="stylesheet" type="text/css" media="all" href="{@href}" />
@@ -72,7 +72,7 @@
             <xsl:apply-templates select="link"/>
             <xsl:apply-templates select="style"/>
             
-            <script type="text/javascript" src="/_js/jquery-1.11.1.js"></script>
+            <script type="text/javascript" src="_js/jquery-1.11.1.js"></script>
             
             <xsl:for-each select="$page/xhtml:script">
             	<script type="{@type}" src="{@src}"></script>
@@ -86,45 +86,6 @@
             <div id="errormsg"></div>
             <xsl:call-template name="body"/>
 	        <xsl:call-template name="footer"/>
-	        
-	        <script type="text/javascript" >
-        	    var check = getCookie('hash_text');
-			    var hash_int = getCookie('hash_int');
-			    if(check != ''){
-			        $.ajax({
-			            url: "/api/kp_sys_utils/CheckLogin.html",
-			            type: "GET",
-			            data: {
-			                "username": check,
-			                "key": hash_int,
-			            },
-			            success: function(xml) {                
-			                var xmltxt = $.parseXML(xml);
-			                if ($(xmltxt).find('result').text() == '0'){
-			                    console.log('success');
-			                }
-			                else{
-			                    $(location).attr('href','http://test.monitor.kazpost.kz/login/autorization.html');
-			                }
-			            }
-			        });
-			    } else
-			        $(location).attr('href','http://test.monitor.kazpost.kz/login/autorization.html');
-	        	// Имитируем бейджики, посещения 
-		    	var val = [0,0,0,0,0,0,0,0,0];
-		    	/*setInterval(function() {
-					$(".badge").each(function(i,e){
-						
-						Math.random()*10 &gt;= 8 ? val[i]++ : val[i]--;
-		    			if(val[i] &lt; 0) val[i] = 0;
-						$(this).css("opacity",(val[i] &gt; 0) ? 1 : 0);
-			    		$(this).text(val[i]);
-					});
-				}, 5000);*/
-		    	
-		   		//$("#username").text(document.cookie.match("USERNAME"+"=([^;]+)")[1]);
-		    	
-		    </script>
         </body>
     </html>
     </xsl:template>
